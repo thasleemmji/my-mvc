@@ -56,7 +56,7 @@
             <a id="logout-link" href="../auth.php?logout=true">Logout</a>
         <?php else: ?>
             <a id="signup-link" href="javascript: void()">Register</a>
-            <form action="../auth.php" method="POST" id="signup-form">
+            <form action="/register" method="POST" id="signup-form">
                 <label>
                     <input name="name" placeholder="Name" autocomplete="off" required>
                 </label>

@@ -10,4 +10,9 @@ class HomeController
     {
         return View::make('home');
     }
+
+    public function register(Request $request)
+    {
+
+    }
 }

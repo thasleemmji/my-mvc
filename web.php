@@ -10,7 +10,7 @@ Route::get('/', function () {
 
 Route::get('/home', [HomeController::class, 'index']);
 
+Route::post('/register', [HomeController::class, 'register']);
 
-// 1. home -> base URL: GET
 // 2. register:         POST
 // 3. logout:           GET

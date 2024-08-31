@@ -12,6 +12,20 @@ class Route
             return;
         }
 
+        self::on($routeUrl, $action);
+    }
+
+    public static function post(string $routeUrl, Closure|array $action): void
+    {
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+            return;
+        }
+
+        self::on($routeUrl, $action);
+    }
+
+    public static function on(string $routeUrl, array|Closure $action): void
+    {
         $requestedURL = $_SERVER['REQUEST_URI'];
 
         if ($requestedURL === $routeUrl) {
