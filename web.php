@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AuthController;
 use Illuminate\Framework\Route;
 use Illuminate\Framework\View;
 
@@ -8,8 +8,6 @@ Route::get('/', function () {
     return View::make('home', ['name' => $_SESSION['name'] ?? null]);
 });
 
-Route::get('/home', [HomeController::class, 'index']);
+Route::post('/register', [AuthController::class, 'register']);
 
-Route::post('/register', [HomeController::class, 'register']);
-
-Route::get('/logout', [HomeController::class, 'logout']);
+Route::get('/logout', [AuthController::class, 'logout']);
