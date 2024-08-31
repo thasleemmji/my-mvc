@@ -12,4 +12,4 @@ Route::get('/home', [HomeController::class, 'index']);
 
 Route::post('/register', [HomeController::class, 'register']);
 
-// 3. logout:           GET
+Route::get('/logout', [HomeController::class, 'logout']);

@@ -23,4 +23,12 @@ class HomeController
         header("Location: /home");
         exit();
     }
+
+    public function logout()
+    {
+        session_destroy();
+
+        header("Location: /home");
+        exit();
+    }
 }

@@ -50,7 +50,7 @@
 
     <div class="register-component">
         <?php if (!is_null($name)): ?>
-            <a id="logout-link" href="../auth.php?logout=true">Logout</a>
+            <a id="logout-link" href="/logout">Logout</a>
         <?php else: ?>
             <a id="signup-link" href="javascript: void()">Register</a>
             <form action="/register" method="POST" id="signup-form">
