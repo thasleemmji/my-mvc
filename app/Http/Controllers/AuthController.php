@@ -2,26 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Framework\Redirect;
 use Illuminate\Framework\Request;
-use Illuminate\Framework\View;
 
 class AuthController
 {
-    public function register(Request $request)
+    public function register(Request $request): Redirect
     {
         if (!empty($name = $request->post('name'))) {
             $_SESSION['name'] = $name;
         }
 
-        header("Location: /home");
-        exit();
+        return Redirect::to('');
     }
 
-    public function logout()
+    public function logout(): Redirect
     {
         session_destroy();
 
-        header("Location: /home");
-        exit();
+        return Redirect::to('');
     }
 }
