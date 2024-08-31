@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,14 +44,12 @@
     <h1>
         Welcome
         <span>
-            <?php
-                echo $_SESSION['name'] ?? '{{ Guest user }}';
-            ?>
+            <?php echo $name ?? '{{ Guest user}}'; ?>
         </span>
     </h1>
 
     <div class="register-component">
-        <?php if (isset($_SESSION['name'])): ?>
+        <?php if (!is_null($name)): ?>
             <a id="logout-link" href="../auth.php?logout=true">Logout</a>
         <?php else: ?>
             <a id="signup-link" href="javascript: void()">Register</a>

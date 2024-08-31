@@ -33,7 +33,7 @@ class Route
                 call_user_func_array($action, []);
             } else {
                 [$controller, $method] = $action;
-                call_user_func_array([new $controller(), $method], []);
+                call_user_func_array([new $controller(), $method], [new Request()]);
             }
         }
     }
