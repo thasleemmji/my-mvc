@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Framework\View;
+
 class HomeController
 {
-    public function index()
+    public function index(): View
     {
-        echo "In home controller"; exit;
-        // return a view;
+        return View::make('home');
     }
 }

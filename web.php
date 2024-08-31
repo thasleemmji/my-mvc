@@ -2,9 +2,10 @@
 
 use App\Http\Controllers\HomeController;
 use Illuminate\Framework\Route;
+use Illuminate\Framework\View;
 
 Route::get('/', function () {
-    echo "we are in base url"; exit;
+    return View::make('home');
 });
 
 Route::get('/home', [HomeController::class, 'index']);
