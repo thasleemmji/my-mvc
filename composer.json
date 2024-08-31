@@ -5,6 +5,8 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
+            "Illuminate\\Framework\\": "framework/",
+            "App\\": "app/"
         }
     },
     "authors": [
