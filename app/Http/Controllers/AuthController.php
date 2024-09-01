@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RegisterRequest;
 use Illuminate\Framework\Redirect;
-use Illuminate\Framework\Request;
 
 class AuthController
 {
-    public function register(Request $request): Redirect
+    public function register(RegisterRequest $request): Redirect
     {
-        if (!empty($name = $request->post('name'))) {
+        if (!empty($name = $request->getName())) {
             $_SESSION['name'] = $name;
         }
 

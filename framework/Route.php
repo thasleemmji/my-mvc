@@ -33,8 +33,29 @@ class Route
                 call_user_func_array($action, []);
             } else {
                 [$controller, $method] = $action;
-                call_user_func_array([new $controller(), $method], [new Request()]);
+                $controllerInstance = new $controller;
+                call_user_func_array(
+                    [$controllerInstance, $method],
+                    [self::resolveRequest($controllerInstance, $method)]
+                );
             }
         }
+    }
+
+    private static function resolveRequest(object $controllerInstance, string $method): Request
+    {
+        try {
+            $reflector = new \ReflectionMethod($controllerInstance, $method);
+            foreach ($reflector->getParameters() as $parameter) {
+                if (in_array(
+                    Request::class,
+                    class_parents($customRequestClass = $parameter->getType()->getName()))
+                ) {
+                    return new $customRequestClass;
+                }
+            }
+        } catch (\Exception) {}
+
+        return new Request();
     }
 }
