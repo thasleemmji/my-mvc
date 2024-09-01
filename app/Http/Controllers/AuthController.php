@@ -13,13 +13,13 @@ class AuthController
             $_SESSION['name'] = $name;
         }
 
-        return Redirect::to('');
+        return redirect('');
     }
 
     public function logout(): Redirect
     {
         session_destroy();
 
-        return Redirect::to('');
+        return redirect('');
     }
 }

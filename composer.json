@@ -7,7 +7,10 @@
         "psr-4": {
             "Illuminate\\Framework\\": "framework/",
             "App\\": "app/"
-        }
+        },
+        "files": [
+            "framework/helpers.php"
+        ]
     },
     "authors": [
         {
